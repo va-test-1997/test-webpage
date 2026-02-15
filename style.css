@@ -1,0 +1,230 @@
+/* --------------------
+   Reset + Variables
+-------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-gradient: linear-gradient(
+    135deg,
+    #eef1ef,
+    #e4ebe7,
+    #ebe6ea
+);
+
+
+    --glass-bg: rgba(255, 255, 255, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.35);
+
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+
+    --accent: #3f7f6a;        /* muted sage green */
+    --accent-soft: #e6f2ee;
+
+    --shadow-soft:
+        0 10px 25px rgba(0, 0, 0, 0.06),
+        0 30px 60px rgba(0, 0, 0, 0.08);
+}
+
+/* --------------------
+   Page
+-------------------- */
+body {
+    min-height: 100vh;
+    background: var(--bg-gradient);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Inter",
+        "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-primary);
+    line-height: 1.65;
+}
+
+/* --------------------
+   Glass Container
+-------------------- */
+.container {
+    max-width: 680px;
+    width: 92%;
+    padding: 56px 48px;
+    text-align: center;
+
+    background: var(--glass-bg);
+    backdrop-filter: blur(14px) saturate(120%);
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
+
+    border-radius: 22px;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-soft);
+}
+
+/* --------------------
+   Decorative
+-------------------- */
+.flower {
+    font-size: 1.6rem;
+    display: inline-block;
+    margin-bottom: 18px;
+    opacity: 0.85;
+}
+
+/* --------------------
+   Typography
+-------------------- */
+h1 {
+    font-size: 2.05rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+    letter-spacing: -0.02em;
+}
+
+.intro {
+    font-size: 1.03rem;
+    color: var(--text-secondary);
+    margin-bottom: 26px;
+}
+
+.message {
+    font-size: 1.02rem;
+    margin-bottom: 38px;
+    color: var(--text-primary);
+}
+
+.question h2 {
+    font-size: 1.38rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.question p {
+    font-size: 0.98rem;
+    color: var(--text-secondary);
+    margin-bottom: 34px;
+}
+
+/* --------------------
+   Buttons
+-------------------- */
+.buttons {
+    position: relative;
+    height: 68px;
+    margin-bottom: 8px;
+}
+
+button {
+    position: absolute;
+    padding: 11px 34px;
+    font-size: 0.95rem;
+    border-radius: 999px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+/* Yes */
+.yes {
+    background: var(--accent);
+    color: #ffffff;
+    left: 38%;
+}
+
+.yes:hover {
+    box-shadow: 0 10px 25px rgba(63, 127, 106, 0.35);
+}
+
+.yes.active {
+    transform: scale(1.35);
+    left: 45%;
+}
+
+/* No */
+.no {
+    background: rgba(255, 235, 238, 0.85); /* soft red glass */
+    color: #b91c1c; /* muted red */
+    border: 1px solid rgba(185, 28, 28, 0.25);
+    left: 55%;
+}
+
+.no:hover {
+    box-shadow: 0 6px 18px rgba(185, 28, 28, 0.18);
+}
+
+
+/* --------------------
+   Response
+-------------------- */
+.response {
+    margin-top: 30px;
+    font-size: 1.08rem;
+    font-weight: 500;
+    color: var(--accent);
+}
+
+/* --------------------
+   Footer
+-------------------- */
+footer {
+    margin-top: 44px;
+    font-size: 0.82rem;
+    color: #9ca3af;
+}
+
+/* --------------------
+   Mobile
+-------------------- */
+@media (max-width: 480px) {
+    .container {
+        padding: 44px 26px;
+    }
+
+    h1 {
+        font-size: 1.85rem;
+    }
+
+    .yes {
+        left: 32%;
+    }
+
+    .no {
+        left: 54%;
+    }
+}
+
+/* --------------------
+   Confetti Animation
+-------------------- */
+#confetti {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.confetti-piece {
+    position: absolute;
+    top: -10px;
+    width: 8px;
+    height: 14px;
+    opacity: 0.9;
+    animation: fall linear forwards;
+    border-radius: 2px;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+
