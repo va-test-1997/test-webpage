@@ -11,7 +11,7 @@ const name = params.get("name");
 if (name) {
     const formattedName =
         name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
-    title.textContent = `Happy Purpose Day, ${formattedName}`;
+    title.textContent = `Happy Propose Day, ${formattedName}`;
 }
 
 /* No button escapes */
